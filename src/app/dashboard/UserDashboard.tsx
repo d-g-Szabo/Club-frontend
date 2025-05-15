@@ -193,23 +193,26 @@ export default function UserDashboard() {
                 </p>
               </>
             )}
-            {selectedSession.price > 0 &&
-            selectedSession.booked_slots < selectedSession.capacity ? (
+            {selectedSession.price > 0 ? (
               <>
-                <PayPalButtons
-                  createOrder={(data: any, actions: any) => {
-                    return actions.order.create({
-                      purchase_units: [
-                        {
-                          amount: {
-                            value: selectedSession.price.toString(),
-                          },
-                        },
-                      ],
-                    });
-                  }}
-                  onApprove={handleApprove}
-                />
+                {selectedSession.booked_slots < selectedSession.capacity && (
+                  <>
+                    <PayPalButtons
+                      createOrder={(data: any, actions: any) => {
+                        return actions.order.create({
+                          purchase_units: [
+                            {
+                              amount: {
+                                value: selectedSession.price.toString(),
+                              },
+                            },
+                          ],
+                        });
+                      }}
+                      onApprove={handleApprove}
+                    />
+                  </>
+                )}
               </>
             ) : (
               <>
