@@ -374,7 +374,7 @@ export default function ClubDashboard() {
             sessions.map((session) => (
               <div
                 key={session.id}
-                className="h-24 bg-muted rounded shadow hover:shadow-lg transition-shadow cursor-pointer p-4 flex flex-col justify-between"
+                className="h-32 bg-muted rounded shadow hover:shadow-lg transition-shadow cursor-pointer p-4 flex flex-col justify-between"
               >
                 <div className="font-semibold">{session.title}</div>
                 <div className="text-xs text-muted-foreground">
